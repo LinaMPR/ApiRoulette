@@ -20,6 +20,14 @@ namespace ApiRoulette
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureKestrel(serverOptions =>
+                    {
+                        serverOptions.Limits.MaxConcurrentConnections = 1000;
+                        serverOptions.Limits.MaxConcurrentUpgradedConnections = 1000;
+                        serverOptions.Limits.MaxRequestBodySize = 68359 * 1024;
+                        serverOptions.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
+                        serverOptions.ListenAnyIP(5000);
+                    });
                     webBuilder.UseStartup<Startup>();
                 });
     }
