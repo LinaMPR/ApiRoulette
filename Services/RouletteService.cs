@@ -11,6 +11,12 @@ namespace ApiRoulette.Services
     public class RouletteService : IRouletteService
     {
         private IRouletteRepository rouletteRepository;
+
+        public RouletteService(IRouletteRepository rouletteRepository)
+        {
+            this.rouletteRepository = rouletteRepository;
+        }
+
         public Roulette Bet(string Id, string UserId, int position, double money)
         {
             if(money > 10000 || money < 1)

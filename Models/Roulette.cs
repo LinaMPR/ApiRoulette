@@ -18,7 +18,6 @@ namespace ApiRoulette.Models
         {
             this.Init();
         }
-
         private void Init()
         {
             for(int i =0; i < board.Length; i++)

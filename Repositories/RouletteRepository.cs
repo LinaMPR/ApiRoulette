@@ -11,8 +11,7 @@ namespace ApiRoulette.Repositories
     {
         private IEasyCachingProviderFactory cachingProviderFactory;
         private IEasyCachingProvider cachingProvider;
-
-        private const string KEYREDIS = "TablerOulete";
+        private const string KEYREDIS = "TABLEROULETE";
         public RouletteRepository(IEasyCachingProviderFactory cachingProviderFactory)
         {
             this.cachingProviderFactory = cachingProviderFactory;
@@ -28,7 +27,6 @@ namespace ApiRoulette.Repositories
 
             return new List<Roulette>(roulett.Select(x => x.Value.Value));
         }
-
         public Roulette GetById(string Id)
         {
             var item = this.cachingProvider.Get<Roulette>(KEYREDIS + Id);
@@ -39,17 +37,16 @@ namespace ApiRoulette.Repositories
 
             return item.Value;
         }
-
         public Roulette Save(Roulette roulette)
         {
             cachingProvider.Set(KEYREDIS + roulette.Id, roulette, TimeSpan.FromDays(365));
 
             return roulette;
         }
-
         public Roulette Update(string Id, Roulette roulette)
         {
             roulette.Id = Id;
+
             return Save(roulette);  
         }
     }

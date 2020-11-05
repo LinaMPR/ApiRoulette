@@ -33,6 +33,7 @@ namespace ApiRoulette
             });
             services.AddScoped<IRouletteRepository, RouletteRepository>();
             services.AddScoped<IRouletteService, RouletteService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +43,7 @@ namespace ApiRoulette
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

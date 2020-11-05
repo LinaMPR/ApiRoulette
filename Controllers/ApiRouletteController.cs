@@ -77,8 +77,7 @@ namespace ApiRoulette.Controllers
         //Lets place a bet
         //</sumary>
         [HttpPost("{id}/bet")]
-        public IActionResult Bet([FromHeader(Name ="user-id")] string UserId,[FromRoute(Name = "id")] 
-                                            string id, [FromBody] BetRequest request)
+        public IActionResult Bet([FromHeader(Name ="user-id")] string UserId,[FromRoute(Name = "id")] string id, [FromBody] BetRequest request)
         {
             if (!ModelState.IsValid)
             {

@@ -1,0 +1,9 @@
+﻿URL Postman
+
+1. POST https://localhost:44333/apiroulette                      create rulette
+2. GET https://localhost:44333/apiroulette                       list rulette
+3. PUT https://localhost:44333/apiroulette/{{roulete_id}}/open   open rulette   
+4. POST https://localhost:44333/apiroulette/{{roulete_id}}/bet   bet
+5. PUT https://localhost:44333/apiroulette/{{roulete_id}}/close  close rulette
+
+The port may vary according to the machine.
